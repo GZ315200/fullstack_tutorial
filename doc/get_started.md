@@ -41,8 +41,8 @@
 
 克隆这个仓库：
 
-```git
-https://github.com/GZ315200/fullstack_tutorial.git
+```shell
+git clone https://github.com/GZ315200/fullstack_tutorial.git
 ```
 
 克隆成功后，你可以看到两个文件，final 和 start, final是最终的代码，start是用来练习这个教程的demo，他们分别下面有两个文件，一个是client，另一个是server，server端构建graph API用到的。
