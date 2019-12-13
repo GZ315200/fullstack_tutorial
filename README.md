@@ -12,3 +12,4 @@ This repository, free of charge, to any person obtaining a copy.
 ## 教程文档
 
 [开始](./doc/get_started.md)
+[构建schema](./doc/build_a_schema.md)
