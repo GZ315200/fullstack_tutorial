@@ -194,7 +194,7 @@ server.listen().then(({ url }) => {
 
 另外`GraphQL Playground`提供了一种相当与自检查的装置，可以点击`schema`按钮进行查看哦。
 
-![graphQL](../img/graphQL.png)
+![Image](./img/graphQL.png)
 
 
 - [上一页](./get_started.md)   [下一页](./build_a_schema.md)

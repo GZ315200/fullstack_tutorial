@@ -12,7 +12,8 @@
 
 像下面这样：
 
-![spacex](../img/spacex.png)
+
+![Image](./img/spacex.png)
 
 这个应用包含：
 
