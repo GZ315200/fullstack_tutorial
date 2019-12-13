@@ -8,3 +8,7 @@ This repository, free of charge, to any person obtaining a copy.
 任何你想到的你都可以去做。`
 
 `不过不要触犯法律。`
+
+## 教程文档
+
+[开始]('./doc/get_started.md')
