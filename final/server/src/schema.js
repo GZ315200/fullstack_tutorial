@@ -33,19 +33,18 @@ const typeDefs = gql`
     LARGE
   }
   type Mutation {
-  # if false, booking trips failed -- check errors
-  bookTrips(launchIds: [ID]!): TripUpdateResponse!
+    # if false, booking trips failed -- check errors
+    bookTrips(launchIds: [ID]!): TripUpdateResponse!
 
-  # if false, cancellation failed -- check errors
-  cancelTrip(launchId: ID!): TripUpdateResponse!
+    # if false, cancellation failed -- check errors
+    cancelTrip(launchId: ID!): TripUpdateResponse!
 
-  login(email: String): String # login token
-}
-type TripUpdateResponse {
-  success: Boolean!
-  message: String
-  launches: [Launch]
-}
+    login(email: String): String # login token
+  }
+  type TripUpdateResponse {
+    success: Boolean!
+    message: String
+    launches: [Launch]
+  }
 `;
-
 module.exports = typeDefs;
