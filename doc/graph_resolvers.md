@@ -56,7 +56,7 @@ server.listen().then(({ url }) => {
 ```
 加入之后Apollo Server会自动执行我们的解析器。
 
-### 写出你的查询的解析器
+### 编写出你的解析器
 
 首先，让我们为查询类型上的，launches, launche, me编写查询解析器
 我们将解析器构建到一个映射中，其中的键对应于schema中的类型和字段。 如果你想记住类型上的哪些字段，可以随时检查Graph API的schema。
