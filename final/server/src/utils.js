@@ -1,3 +1,4 @@
+import { DB_NAME, PORT, HOST, USERNAME, PASSWORD } from './common/consts'
 const SQL = require('sequelize');
 
 module.exports.paginateResults = ({
@@ -40,6 +41,14 @@ module.exports.createStore = () => {
     operatorsAliases,
     logging: false,
   });
+
+  const mysqlDb = new SQL(`${DB_NAME}`, `${USERNAME}`, `${PASSWORD}`, {
+    dialect: 'mysql',
+    host: `${HOST}`,
+    port: `${PORT}`,
+    // operatorsAliases,
+    logging: false,
+  })
 
   const users = db.define('user', {
     id: {
