@@ -1,4 +1,4 @@
-import { DB_NAME, PORT, HOST, USERNAME, PASSWORD } from './common/consts'
+// import { DB_NAME, PORT, HOST, USERNAME, PASSWORD } from './common/consts';
 const SQL = require('sequelize');
 
 module.exports.paginateResults = ({
@@ -39,16 +39,16 @@ module.exports.createStore = () => {
     dialect: 'sqlite',
     storage: './store.sqlite',
     operatorsAliases,
-    logging: false,
+    logging: true,
   });
 
-  const mysqlDb = new SQL(`${DB_NAME}`, `${USERNAME}`, `${PASSWORD}`, {
-    dialect: 'mysql',
-    host: `${HOST}`,
-    port: `${PORT}`,
-    // operatorsAliases,
-    logging: false,
-  })
+  // const mysqlDb = new SQL(`${DB_NAME}`, `${USERNAME}`, `${PASSWORD}`, {
+  //   dialect: 'mysql',
+  //   host: `${HOST}`,
+  //   port: `${PORT}`,
+  //   // operatorsAliases,
+  //   logging: false,
+  // })
 
   const users = db.define('user', {
     id: {

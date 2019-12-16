@@ -14,3 +14,4 @@ This repository, free of charge, to any person obtaining a copy.
 - [开始](./doc/get_started.md)
 - [构建schema](./doc/build_a_schema.md)
 - [连接数据源](./doc/hook_up_datasource.md)
+- [编写解析器](./doc/graph_resolvers.md)
