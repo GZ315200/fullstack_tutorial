@@ -197,4 +197,4 @@ server.listen().then(({ url }) => {
 ![Image](./img/graphQL.png)
 
 
-- [上一页](./get_started.md)   [下一页](./build_a_schema.md)
+- [上一页](./get_started.md)   [下一页](./hook_up_datasource.md)
