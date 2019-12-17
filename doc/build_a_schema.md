@@ -4,20 +4,21 @@
 # 构建Schema
 ## 为你的Graph Data构建一个蓝图
 
-构建`Graph API`的第一步就是构建其`Schema`。 您可以将`scheme`视为可以在图形中访问的所有数据的蓝图。
-在本节中，您将学习如何使用Apollo构建和探索图形的`schema`。
+构建`Graph API`的第一步就是构建其`Schema`。 你可以将`schema`视为可以在graph中访问的所有数据的蓝图。
+
+在本节中，你将学习如何使用Apollo去构建Graph的`schema`。
 
 ### 建立Apollo Server
 
-在我们写schema之前，我们需要去建立我们的graph API的服务。Apollo Server是一个库，它可以帮助你构建graph API，并且它可以连接到任何数据源，包括REST API 和数据库，并且与开发人员工具无缝集成。
+在写schema之前，我们需要去建立我们的graph API的服务。Apollo Server是一个库，它可以帮助你构建graph API，并且它可以连接到任何数据源，包括REST API 和数据库，并且与开发人员工具无缝集成。
 
-OK，现在到根目录下，去下载我们的依赖
+OK，现在到根目录下，去下载我们的依赖，输入下列命令
 ```shell
     cd start/server && npm install
 ```
 你启动Apollo服务你需要两个包，appolo-server 和 graphql. 接着copy下列代码到src/index.js下
 
-src/index.js
+***src/index.js***
 
 ```javascript
 const { ApolloServer } = require('apollo-server');
@@ -33,8 +34,7 @@ const server = new ApolloServer({ typeDefs });
 
 OK，先讲一下什么是`graph schema`
 
-每一个graph API均以其`schema`为中心，中文翻译为模式，我觉得有点词不达意。就暂且不翻译了。`schame`其实说白了就是定义了一种数据流向的通道。它连接了所有数据类型以及他们之间的关系的一张关系图，`schema`还定义了我们可以通过查询获取哪些数据，以及我们可以通过突变更新哪些数据。它是强类型的，这就解锁了强大的开发工具。
-由于`schema`
+每一个graph API均以其`schema`为中心，中文翻译为模式，我觉得有点词不达意。就暂且不翻译了。`schame`其实说白了就是定义了一种数据流向的通道。它连接了所有数据类型以及他们之间的关系,类似于一张关系图，`schema`还定义了我们可以通过查询获取哪些数据，以及我们可以更新哪些数据。它是强类型的，这就解锁了强大的开发工具。
 
 由于`schema`位于客户端和底层服务之间，所以它是前端和后端团队协作的完美中间地带
 
@@ -42,8 +42,8 @@ OK，先讲一下什么是`graph schema`
 
 思考一下，为构建这个应用，我们应该需要哪些数据？
 
-- 查询所有即将发射火箭的平台
-- 使用ID查询特定的火箭发射平台
+- 查询所有即将发射的发射器
+- 使用ID查询特定的火箭发射器
 - 用户登陆
 - 登陆用户预定火箭旅行
 - 登陆用户取消火箭旅行
@@ -131,12 +131,12 @@ enum PatchSize {
 }
 ```
 
-⚠️ 你注意到, `missionPatch`字段接受`size`参数。 GraphQL具有灵活性，因为任何字段都可以包含参数，而不仅仅是查询。`size`参数对应于一个枚举类型，我们在底部使用`PatchSize`进行定义。
+⚠️ 你可能会注意到, `missionPatch`字段接受`size`参数。 GraphQL具有灵活性，因为任何字段都可以包含参数，而不仅仅是查询。`size`参数对应于一个枚举类型，我们在底部使用`PatchSize`进行定义。
 
 还有一些不常见的类型，点击查看哦，😂 [cheat sheet](https://devhints.io/graphql#schema)
 
 
-### 基因突变类型😄
+### 基因突变类型😄（更改数据）
 
 现在我们定义`Mutation type`, `Mutation`类型是我们Graph中用于修改数据的入口点。就像查询类型一样。`Mutation`类型是一个特殊的类型。
 
