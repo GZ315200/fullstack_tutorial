@@ -1,5 +1,5 @@
-const { DataSource } = require('apollo-datasource');
-const isEmail = require('isemail');
+const { DataSource } = require("apollo-datasource");
+const isEmail = require("isemail");
 
 class UserAPI extends DataSource {
   constructor({ store }) {
@@ -31,6 +31,14 @@ class UserAPI extends DataSource {
     return users && users[0] ? users[0] : null;
   }
 
+  async findUserByEmail({ email: emailArg } = {}) {
+    const email =
+      this.context && this.context.user ? this.context.user.email : emailArg;
+    if (!email || !isEmail.validate(email)) return null;
+    const user = await this.store.users.findOne({ where: {email} });
+    return user != null
+  }
+
   async bookTrips({ launchIds }) {
     const userId = this.context.user.id;
     if (!userId) return;
@@ -50,7 +58,7 @@ class UserAPI extends DataSource {
   async bookTrip({ launchId }) {
     const userId = this.context.user.id;
     const res = await this.store.trips.findOrCreate({
-      where: { userId, launchId },
+      where: { userId, launchId }
     });
     return res && res.length ? res[0].get() : false;
   }
@@ -63,7 +71,7 @@ class UserAPI extends DataSource {
   async getLaunchIdsByUser() {
     const userId = this.context.user.id;
     const found = await this.store.trips.findAll({
-      where: { userId },
+      where: { userId }
     });
     return found && found.length
       ? found.map(l => l.dataValues.launchId).filter(l => !!l)
@@ -74,7 +82,7 @@ class UserAPI extends DataSource {
     if (!this.context || !this.context.user) return false;
     const userId = this.context.user.id;
     const found = await this.store.trips.findAll({
-      where: { userId, launchId },
+      where: { userId, launchId }
     });
     return found && found.length > 0;
   }

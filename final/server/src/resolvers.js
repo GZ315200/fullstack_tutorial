@@ -64,8 +64,16 @@ module.exports = {
       };
     },
     login: async (_, { email }, { dataSources }) => {
-      const user = await dataSources.userAPI.findOrCreateUser({ email });
-      if (user) return Buffer.from(email).toString('base64');
+      const user = await dataSources.userAPI.findUserByEmail({ email });
+      if (!user)
+        return {
+          success: false,
+          message: 'the email is not valid account, pelease contact with admin.',
+        };
+      if (user) return {
+        success: true,
+        token: Buffer.from(email).toString('base64'),
+      }
     },
   },
   Launch: {
