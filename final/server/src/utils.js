@@ -39,7 +39,7 @@ module.exports.createStore = () => {
     dialect: 'sqlite',
     storage: './store.sqlite',
     operatorsAliases,
-    logging: true,
+    logging: false,
   });
 
   // const mysqlDb = new SQL(`${DB_NAME}`, `${USERNAME}`, `${PASSWORD}`, {

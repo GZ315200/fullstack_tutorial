@@ -3,6 +3,9 @@
 
 # 连接你的数据源
 ## 连接REST和SQL数据
+
+***开始计时15分钟***
+
 现在，我们已经构建了`Schema`，我们需要将数据源连接到GraphQL API。 GraphQL API非常灵活，因为您可以将它们放在任何服务之上，包括任何业务逻辑，REST API，数据库或gRPC服务。
 
 Apollo使用我们的数据源API使将这些服务连接到你的GraphQL变得简单。 Apollo数据源是一个类，它封装了特定服务的所有数据提取逻辑以及缓存和重复数据删除。 通过使用Apollo数据源将服务连接到Graph API，你还将遵循最佳实践来组织代码。
@@ -10,7 +13,7 @@ Apollo使用我们的数据源API使将这些服务连接到你的GraphQL变得�
 在下一部分中，我们将为REST API和SQL数据库构建数据源，并将它们连接到Apollo Server。 如果你不熟悉这些技术中的任何一种，请不要担心，你无需为了理解示例而深入了解它们。 😀
 
 ### 连接REST API
-首先，让我们连接Space-X v2 Rest API到你的Graph。我们需要先下载`apollo-datasource-rest`,如果已经安装了，可以忽略
+首先，让我们连接[Space-X v2 Rest API](https://github.com/r-spacex/SpaceX-API)到你的Graph。我们需要先下载`apollo-datasource-rest`,如果已经安装了，可以忽略
 
 ```shell
 npm install apollo-datasource-rest --save
@@ -36,7 +39,7 @@ module.exports = LaunchAPI;
 
 Apollo `RESTDataSource`还设置了内存缓存，无需额外设置即可缓存来自REST资源的响应。 我们称此为部分查询缓存。 此缓存的优点在于，你可以重用REST API公开的现有缓存逻辑。 如果您想了解有关使用Apollo数据源进行部分查询缓存的更多信息，请查看我们的博客文章。
 
-### 写拉取数据的方法
+### 写出拉取数据的方法
 
 下一步是向`LaunchAPI`数据源添加与我们的Graph API需要获取的查询相对应的方法。 根据我们的架构，我们需要一种方法来获取所有启动。 现在，将一个`getAllLaunches`方法添加到我们的`LaunchAPI`类中：
 
