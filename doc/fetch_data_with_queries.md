@@ -272,4 +272,4 @@ export default function Profile() {
 ```
 如果尝试渲染此查询，你将注意到它返回null。这是因为我们需要首先实现登录特性。我们将在下一节处理登录。
 
-- [上一页](./connect_client_api.md)   [下一页](./connect_client_api.md)
+- [上一页](./connect_client_api.md)   [下一页](./update_data_with_mutations.md)

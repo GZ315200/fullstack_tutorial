@@ -15,3 +15,4 @@ This repository, free of charge, to any person obtaining a copy.
 - [连接数据源](./doc/hook_up_datasource.md)
 - [编写解析器](./doc/graph_resolvers.md)
 - [连接你的API到客户端](./doc/connect_client_api.md)
+- [获取查询数据](./doc/fetch_data_with_queries.md)
