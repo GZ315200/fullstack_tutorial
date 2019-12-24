@@ -16,3 +16,5 @@ This repository, free of charge, to any person obtaining a copy.
 - [编写解析器](./doc/graph_resolvers.md)
 - [连接你的API到客户端](./doc/connect_client_api.md)
 - [获取查询数据](./doc/fetch_data_with_queries.md)
+- [通过mutations更新数据](./doc/update_data_with_mutations.md)
+- [管理本地状态](./doc/manage_local_state.md)
