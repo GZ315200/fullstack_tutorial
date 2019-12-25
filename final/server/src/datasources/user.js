@@ -40,11 +40,11 @@ class UserAPI extends DataSource {
   }
 
   async bookTrips({ launchIds }) {
-    const userId = this.context.user.id;
-    if (!userId) return;
-
+    if (this.context && this.context.user != null) {
+      const userId = this.context.user.id;
+      if (!userId) return;
+    }
     let results = [];
-
     // for each launch id, try to book the trip and add it to the results array
     // if successful
     for (const launchId of launchIds) {
@@ -56,7 +56,11 @@ class UserAPI extends DataSource {
   }
 
   async bookTrip({ launchId }) {
-    const userId = this.context.user.id;
+    let userId;
+    if (this.context && this.context.user != null) {
+      userId = this.context.user.id;
+      if (!userId) return;
+    }
     const res = await this.store.trips.findOrCreate({
       where: { userId, launchId }
     });
