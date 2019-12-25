@@ -23,6 +23,8 @@ export default function Login() {
     }
   });
 
+  console.log('login', login)
+
   if (loading) return <Loading />;
   if (error) return <p>An error occurred</p>;
 
