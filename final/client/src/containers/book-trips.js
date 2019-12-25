@@ -1,11 +1,12 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import { Loading } from "../components";
+
 import Button from '../components/button';
 import { GET_LAUNCH } from './cart-item';
 
-const BOOK_TRIPS = gql`
+export { GET_LAUNCH };
+export const BOOK_TRIPS = gql`
   mutation BookTrips($launchIds: [ID]!) {
     bookTrips(launchIds: $launchIds) {
       success
@@ -19,22 +20,21 @@ const BOOK_TRIPS = gql`
 `;
 
 export default function BookTrips({ cartItems }) {
-  const [bookTrips, { data, loading, error }] = useMutation(
+  const [bookTrips, { data }] = useMutation(
     BOOK_TRIPS,
     {
+      variables: { launchIds: cartItems },
       refetchQueries: cartItems.map(launchId => ({
         query: GET_LAUNCH,
         variables: { launchId },
       })),
-
       update(cache) {
         cache.writeData({ data: { cartItems: [] } });
       }
     }
-  )
-  if (loading) return <Loading />;
-  if (error) return <p>ERROR: {error.message}</p>;
-
+  );
+  console.log('bookTrips => ', bookTrips)
+  console.log('data => ', bookTrips)
   return data && data.bookTrips && !data.bookTrips.success
     ? <p data-testid="message">{data.bookTrips.message}</p>
     : (
