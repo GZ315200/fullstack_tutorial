@@ -155,7 +155,7 @@ type Mutation {
   login(email: String): String
 }
 ```
-`bookTrips`和`cancelTrip`突变都接受一个参数返回`TripUpdateResponse`. GraphQL突变的返回类型完取决与你。建议定义一个特殊的响应类型，以确保将正确的响应返回给客户端。 在较大的项目中，您可以将此类型抽象为接口，但是现在，我们将定义TripUpdateResponse：
+`bookTrips`和`cancelTrip`mutation都接受一个参数返回`TripUpdateResponse`. GraphQL ，mutation的返回类型完取决与你。建议定义一个特殊的响应类型，以确保将正确的响应返回给客户端。 在较大的项目中，您可以将此类型抽象为接口，但是现在，我们将定义TripUpdateResponse：
 
 ***src/schema.js***
 
@@ -167,7 +167,7 @@ type TripUpdateResponse {
 }
 ```
 
-我们的突变响应类型包含成功状态，相应的消息以及我们更新的启动。 最好返回要更新的数据，以使Apollo Client缓存自动更新。
+我们的mutation响应类型包含成功状态，相应的消息以及我们更新的启动。 最好返回要更新的数据，以使Apollo Client缓存自动更新。
 
 ### 启动服务
 
