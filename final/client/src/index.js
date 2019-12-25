@@ -12,7 +12,11 @@ import injectStyles from "./styles";
 const cache = new InMemoryCache();
 const link = new HttpLink({
   uri: "http://localhost:4000/graphql",
-  headers: { authorization: localStorage.getItem("token") }
+  headers: {
+    authorization: localStorage.getItem("token"),
+    'client-name': 'Space Explorer [web]',
+    'client-version': '1.0.0',
+  }
 });
 const client = new ApolloClient({
   cache,
